@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -10,13 +12,14 @@ body {
 
 header {
     color: #000;
-    width: 100%;
+    width: 100vw;
 }
 
 header>nav {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    padding: 10px;
+    height: 10vh;
 }
 
 header>nav>ul {
@@ -29,7 +32,7 @@ header>nav>ul {
 
 header>nav>ul>li {
     display: block;
-    font-size: 25px;
+    font-size: 20px;
     margin-right: 1rem;
     transition: 0.5s;
     border-radius: 5px;
@@ -40,4 +43,48 @@ header>nav>ul>li:hover {
     color: #fff;
     background-color: #792dd6;
     cursor: pointer;
+}
+
+.eu {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+}
+
+.eu>.eudnv {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.eu>.eudnv>.letras {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-family: 'Anton', sans-serif !important;
+    font-size: 150px;
+    color: #792dd6;
+    justify-content: center;
+}
+
+.eu>.eudnv>.letras>.letrasDev{
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    color: #000;
+}
+
+.eu>.eudnv>.foto {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eu>.eudnv>.foto>img {
+    width: 100%;
+    height: 100%;
 }
