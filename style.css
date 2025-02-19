@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('./Fundo.png');
+}
+
+header {
+    color: #000;
+    width: 100%;
+}
+
+header>nav {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+header>nav>ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    width: 25%;
+}
+
+header>nav>ul>li {
+    display: block;
+    font-size: 25px;
+    margin-right: 1rem;
+    transition: 0.5s;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+header>nav>ul>li:hover {
+    color: #fff;
+    background-color: #792dd6;
+    cursor: pointer;
+}
