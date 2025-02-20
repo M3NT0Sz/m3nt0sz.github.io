@@ -71,7 +71,7 @@ header>nav>ul>li:hover {
     justify-content: center;
 }
 
-.eu>.eudnv>.letras>.letrasDev{
+.eu>.eudnv>.letras>.letrasDev {
     font-family: 'Poppins', sans-serif;
     font-size: 50px;
     color: #000;
@@ -87,4 +87,57 @@ header>nav>ul>li:hover {
 .eu>.eudnv>.foto>img {
     width: 100%;
     height: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    header>nav>ul {
+        width: 50%;
+    }
+
+    .eu>.eudnv>.letras {
+        font-size: 100px;
+    }
+
+    .eu>.eudnv>.letras>.letrasDev {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    header>nav>ul {
+        width: 70%;
+    }
+
+    .eu>.eudnv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .eu>.eudnv>.letras, .eu>.eudnv>.foto {
+        width: 100%;
+        text-align: center;
+    }
+
+    .eu>.eudnv>.letras {
+        font-size: 80px;
+    }
+
+    .eu>.eudnv>.letras>.letrasDev {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    header>nav>ul {
+        width: 90%;
+    }
+
+    .eu>.eudnv>.letras {
+        font-size: 60px;
+    }
+
+    .eu>.eudnv>.letras>.letrasDev {
+        font-size: 20px;
+    }
 }
