@@ -3,16 +3,22 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url('./Fundo.png');
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 header {
     color: #000;
     width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 header>nav {
@@ -46,10 +52,15 @@ header>nav>ul>li:hover {
 }
 
 .eu {
+    background-image: url('./Fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100vw;
     display: flex;
     justify-content: center;
-    height: 80vh;
+    align-items: center;
+    height: 100vh;
 }
 
 .eu>.eudnv {
@@ -82,11 +93,57 @@ header>nav>ul>li:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 90%;
 }
 
 .eu>.eudnv>.foto>img {
     width: 100%;
     height: 100%;
+}
+
+.sobremim{
+    background-image: url('./Fundo3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.sobremim>.sobremim2{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobremim>.sobremim2>.letrasSobre{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    font-family: 'Anton', sans-serif !important;
+    font-size: 150px;
+    color: #792dd6;
+    justify-content: center;
+}
+
+.sobremim>.sobremim2>.sobretexto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    border: 2px solid #792dd6;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+    letter-spacing: 3px;
+    line-height: 1.3;
 }
 
 /* Media Queries for Responsiveness */

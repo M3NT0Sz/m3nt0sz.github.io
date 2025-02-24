@@ -12,24 +12,67 @@
     <header>
         <nav>
             <ul>
-                <li>Home</li>
+                <li><a href="./index.html">Home</a></li>
                 <li>Sobre</li>
                 <li>Contato</li>
             </ul>
         </nav>
     </header>
-    <section class="eu">
+    <section class="eu" id="eu" style="height: 100vh; transition: transform 0.5s ease-in-out;">
         <section class="eudnv">
             <section class="letras">
-                <p>Matheus</p>
-                <p>Mendes</p>
+                <p>MATHEUS</p>
+                <p>MENDES</p>
                 <section class="letrasDev">
                     Desenvolvedor BackEnd
                 </section>
             </section>
-            <section class="foto"><img src="./eu.png"></section>
+            <section class="foto"><img src="./eu.png" alt="Foto de Matheus Mendes"></section>
         </section>
     </section>
+    <section class="sobremim" id="sobremim"
+        style="height: 100vh; transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;">
+        <section class="sobremim2">
+            <section class="letrasSobre">
+                <p>SOBRE MIM</p>
+            </section>
+            <section class="sobretexto">
+                <p>
+                    Olá! Sou um desenvolvedor backend apaixonado por tecnologia e resolução de problemas. Trabalho com
+                    PHP,
+                    Node.js, SQL e JavaScript, sempre buscando aprimorar minhas habilidades e explorar novas
+                    possibilidades
+                    no desenvolvimento de software.
+                    Atualmente, estou em busca da minha primeira oportunidade profissional na área, onde posso aplicar
+                    meus
+                    conhecimentos para criar soluções eficientes e escaláveis. Além do backend, também tenho experiência
+                    com
+                    HTML, CSS e C#, o que me permite compreender melhor o desenvolvimento full stack.
+                    Sou movido por desafios e aprendizado contínuo, sempre buscando melhorar minhas habilidades e
+                    acompanhar
+                    as tendências do mercado. Se você está procurando um desenvolvedor dedicado e pronto para crescer
+                    junto
+                    com sua equipe, vamos conversar!
+                </p>
+            </section>
+        </section>
+    </section>
+
+    <script>
+        document.addEventListener('wheel', function (event) {
+            const euSection = document.getElementById('eu');
+            const sobremimSection = document.getElementById('sobremim');
+            const scrollDirection = event.deltaY;
+
+            if (scrollDirection > 0) {
+                euSection.style.transform = 'translateY(-100vh)';
+                sobremimSection.style.transform = 'translateY(-100vh)';
+            } else if (scrollDirection < 0) {
+                euSection.style.transform = 'translateY(0)';
+                sobremimSection.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
 </body>
 
 </html>
