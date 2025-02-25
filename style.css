@@ -101,7 +101,7 @@ header>nav>ul>li:hover {
     height: 100%;
 }
 
-.sobremim{
+.sobremim {
     background-image: url('./Fundo3.png');
     background-size: cover;
     background-position: center;
@@ -111,7 +111,7 @@ header>nav>ul>li:hover {
     justify-content: center;
 }
 
-.sobremim>.sobremim2{
+.sobremim>.sobremim2 {
     width: 80%;
     display: flex;
     justify-content: center;
@@ -119,7 +119,7 @@ header>nav>ul>li:hover {
     align-items: center;
 }
 
-.sobremim>.sobremim2>.letrasSobre{
+.sobremim>.sobremim2>.letrasSobre {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -129,7 +129,7 @@ header>nav>ul>li:hover {
     justify-content: center;
 }
 
-.sobremim>.sobremim2>.sobretexto{
+.sobremim>.sobremim2>.sobretexto {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -146,6 +146,16 @@ header>nav>ul>li:hover {
     line-height: 1.3;
 }
 
+.projetos {
+    background-image: url('./Fundo3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
     header>nav>ul {
@@ -158,6 +168,14 @@ header>nav>ul>li:hover {
 
     .eu>.eudnv>.letras>.letrasDev {
         font-size: 40px;
+    }
+
+    .sobremim>.sobremim2>.letrasSobre {
+        font-size: 100px;
+    }
+
+    .sobremim>.sobremim2>.sobretexto {
+        font-size: 25px;
     }
 }
 
@@ -183,6 +201,14 @@ header>nav>ul>li:hover {
     .eu>.eudnv>.letras>.letrasDev {
         font-size: 30px;
     }
+
+    .sobremim>.sobremim2>.letrasSobre {
+        font-size: 80px;
+    }
+
+    .sobremim>.sobremim2>.sobretexto {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -196,5 +222,13 @@ header>nav>ul>li:hover {
 
     .eu>.eudnv>.letras>.letrasDev {
         font-size: 20px;
+    }
+
+    .sobremim>.sobremim2>.letrasSobre {
+        font-size: 60px;
+    }
+
+    .sobremim>.sobremim2>.sobretexto {
+        font-size: 11px;
     }
 }

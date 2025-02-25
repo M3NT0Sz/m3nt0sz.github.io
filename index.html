@@ -57,21 +57,44 @@
             </section>
         </section>
     </section>
+    <section class="projetos" id="projetos" style="height: 100vh; transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;">
+        A
+    </section>
 
     <script>
-        document.addEventListener('wheel', function (event) {
-            const euSection = document.getElementById('eu');
-            const sobremimSection = document.getElementById('sobremim');
-            const scrollDirection = event.deltaY;
+        document.addEventListener('wheel', handleScroll);
+        document.addEventListener('keydown', handleKeydown);
 
-            if (scrollDirection > 0) {
-                euSection.style.transform = 'translateY(-100vh)';
-                sobremimSection.style.transform = 'translateY(-100vh)';
-            } else if (scrollDirection < 0) {
-                euSection.style.transform = 'translateY(0)';
-                sobremimSection.style.transform = 'translateY(0)';
+        let isScrolling = false;
+
+        function handleScroll(event) {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const sections = [document.getElementById('eu'), document.getElementById('sobremim'), document.getElementById('projetos')];
+            let currentSectionIndex = sections.findIndex(section => Math.abs(section.getBoundingClientRect().top) < 1);
+
+            if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+            sections[currentSectionIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+            sections[currentSectionIndex - 1].scrollIntoView({ behavior: 'smooth' });
             }
-        });
+
+            setTimeout(() => {
+            isScrolling = false;
+            }, 1000); // Adjust the timeout duration as needed
+        }
+
+        function handleKeydown(event) {
+            const sections = [document.getElementById('eu'), document.getElementById('sobremim'), document.getElementById('projetos')];
+            let currentSectionIndex = sections.findIndex(section => Math.abs(section.getBoundingClientRect().top) < 1);
+
+            if (event.key === 'ArrowDown' && currentSectionIndex < sections.length - 1) {
+            sections[currentSectionIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            } else if (event.key === 'ArrowUp' && currentSectionIndex > 0) {
+            sections[currentSectionIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     </script>
 </body>
 
