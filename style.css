@@ -1,234 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
 * {
-    padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    padding: 0;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    overflow-y: hidden;
+    background-color: rgb(30, 30, 50);
 }
 
 header {
-    color: #000;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
+    /* height: 15vh; */
     z-index: 1000;
-}
-
-header>nav {
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    height: 10vh;
 }
 
-header>nav>ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    width: 25%;
-}
-
-header>nav>ul>li {
-    display: block;
-    font-size: 20px;
-    margin-right: 1rem;
-    transition: 0.5s;
-    border-radius: 5px;
-    padding: 20px;
-}
-
-header>nav>ul>li:hover {
-    color: #fff;
-    background-color: #792dd6;
-    cursor: pointer;
-}
-
-.eu {
-    background-image: url('./Fundo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.nav-list {
+    margin-top: 10vh;
+    background-color: rgb(30, 30, 50);
+    opacity: 0;
     width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-}
-
-.eu>.eudnv {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.eu>.eudnv>.letras {
-    width: 50%;
-    display: flex;
-    align-items: flex-start;
+    transition: .3s;
+    transform: translate(500px, 0);
+    position: relative;
+    display: block;
     flex-direction: column;
-    font-family: 'Anton', sans-serif !important;
-    font-size: 150px;
-    color: #792dd6;
-    justify-content: center;
-}
-
-.eu>.eudnv>.letras>.letrasDev {
-    font-family: 'Poppins', sans-serif;
-    font-size: 50px;
-    color: #000;
-}
-
-.eu>.eudnv>.foto {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-}
-
-.eu>.eudnv>.foto>img {
-    width: 100%;
-    height: 100%;
-}
-
-.sobremim {
-    background-image: url('./Fundo3.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
-
-.sobremim>.sobremim2 {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sobremim>.sobremim2>.letrasSobre {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    font-family: 'Anton', sans-serif !important;
-    font-size: 150px;
-    color: #792dd6;
-    justify-content: center;
-}
-
-.sobremim>.sobremim2>.sobretexto {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    border: 2px solid #792dd6;
-    border-radius: 20px;
-    box-sizing: border-box;
-    font-size: 30px;
     padding: 20px;
-    text-align: center;
-    flex-direction: column;
-    letter-spacing: 3px;
-    line-height: 1.3;
+    list-style: none;
 }
 
-.projetos {
-    background-image: url('./Fundo3.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
+.nav-list>li>a {
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.125rem;
+    text-decoration: none;
+
+}
+
+.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.menu-btn {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    right: 0;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.menu-btn>span {
+    display: block;
+    position: absolute;
+    top: 24px;
+    background-color: aliceblue;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+}
+
+.menu-btn>span::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    background-color: aliceblue;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.menu-btn>span::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color: aliceblue;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.menu-btn.toggle span {
+    background: transparent;
+}
+
+.menu-btn.toggle span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-btn.toggle span::after {
+    transform: rotate(-45deg);
+    left: -1px;
+    top: 0;
+    width: 100%;
+}
+
+.nome {
+    padding-top: 10vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-    header>nav>ul {
-        width: 50%;
-    }
-
-    .eu>.eudnv>.letras {
-        font-size: 100px;
-    }
-
-    .eu>.eudnv>.letras>.letrasDev {
-        font-size: 40px;
-    }
-
-    .sobremim>.sobremim2>.letrasSobre {
-        font-size: 100px;
-    }
-
-    .sobremim>.sobremim2>.sobretexto {
-        font-size: 25px;
-    }
+.nome>h1 {
+    line-height: 1.2;
+    font-size: calc(50px + 3.13vw);
+    font-weight: 700;
 }
 
-@media (max-width: 768px) {
-    header>nav>ul {
-        width: 70%;
-    }
-
-    .eu>.eudnv {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .eu>.eudnv>.letras, .eu>.eudnv>.foto {
-        width: 100%;
-        text-align: center;
-    }
-
-    .eu>.eudnv>.letras {
-        font-size: 80px;
-    }
-
-    .eu>.eudnv>.letras>.letrasDev {
-        font-size: 30px;
-    }
-
-    .sobremim>.sobremim2>.letrasSobre {
-        font-size: 80px;
-    }
-
-    .sobremim>.sobremim2>.sobretexto {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    header>nav>ul {
-        width: 90%;
-    }
-
-    .eu>.eudnv>.letras {
-        font-size: 60px;
-    }
-
-    .eu>.eudnv>.letras>.letrasDev {
-        font-size: 20px;
-    }
-
-    .sobremim>.sobremim2>.letrasSobre {
-        font-size: 60px;
-    }
-
-    .sobremim>.sobremim2>.sobretexto {
-        font-size: 11px;
-    }
+.nome>p {
+    line-height: 1.5;
+    font-size: calc(16px + 1vw);
+    font-weight: 700;
 }
