@@ -22,7 +22,6 @@ header>span>a {
         z-index: 1000;
         overflow: hidden;
         width: 100%;
-        height: 180px;
         position: absolute;
         display: flex;
         justify-content: space-around;
@@ -36,15 +35,11 @@ header>span>a {
         font-weight: 700;
         left: 0;
         top: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        /* margin-left: 30px; */
     }
 
     .nav-list {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
         /* padding-right: 30px; */
         align-items: center;
         height: 100%;
@@ -89,7 +84,7 @@ header>span>a {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 200px 0 40px;
+        padding: 200px 13rem 40px;
         overflow: hidden;
         max-width: 50%;
     }
@@ -118,10 +113,13 @@ header>span>a {
     }
 
     .img>img {
+        filter: grayscale(100%);
         position: absolute;
         max-width: 100%;
         bottom: 100%;
+        right: 15rem!important;
         z-index: -1;
+        right: 1rem;
     }
 
     .tempo {
@@ -132,7 +130,7 @@ header>span>a {
         justify-content: center;
         padding: 20px;
         flex-direction: row;
-        width: 100%;
+        width: 80%;
     }
 
     .tempo>p {
@@ -157,21 +155,8 @@ header>span>a {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        width: 65%;
-    }
-
-    .texto{
-        display: flex;
         width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin-left: -140px;
-    }
-
-    .baixo{
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        margin-bottom: 30px;
     }
 }
 
@@ -248,7 +233,7 @@ header>span>a {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 200px 5rem 40px;
+        padding: 200px 7rem 40px;
         overflow: hidden;
         max-width: 50%;
     }
@@ -279,9 +264,10 @@ header>span>a {
     .img>img {
         position: absolute;
         max-width: 100%;
-        right: 10rem;
         bottom: 100%;
         z-index: -1;
+        right: 7rem;
+        filter: grayscale(100%);
     }
 
     .tempo {
@@ -291,7 +277,7 @@ header>span>a {
         padding: 20px;
         flex-direction: column;
         -webkit-box-align: center;
-        width: 100%;
+        width: 80%;
     }
 
     .tempo>p {
@@ -315,21 +301,8 @@ header>span>a {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        width: 900px;
-    }
-
-    .texto{
-        display: flex;
         width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin-left: -140px;
-    }
-
-    .baixo{
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        margin-bottom: 30px;
     }
 }
 
@@ -437,9 +410,10 @@ header>span>a {
     .img>img {
         position: absolute;
         max-width: 100%;
-        right: 7rem;
+        right: 4rem;
         bottom: 100%;
         z-index: -1;
+        filter: grayscale(100%);
     }
 
     .tempo {
@@ -475,6 +449,7 @@ header>span>a {
         flex-direction: column;
         padding-left: 5rem;
         padding-right: 5rem;
+        margin-bottom: 30px;
     }
 }
 
@@ -629,7 +604,7 @@ header>span>a {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 140px 1.5rem 40px;
+        padding: 140px 2rem 40px;
         overflow: hidden;
     }
 
@@ -658,9 +633,10 @@ header>span>a {
 
     .img>img {
         position: absolute;
-        max-width: 55%;
+        max-width: 75%;
         bottom: 100%;
         z-index: -1;
+        filter: grayscale(100%);
     }
 
     .tempo {
@@ -696,6 +672,7 @@ header>span>a {
         flex-direction: column;
         padding-left: 3rem;
         padding-right: 3rem;
+        margin-bottom: 30px;
     }
 }
 
@@ -880,9 +857,10 @@ header>span>a {
 
     .img>img {
         position: absolute;
-        max-width: 65%;
+        max-width: 80%;
         bottom: 100%;
         z-index: -1;
+        filter: grayscale(100%);
     }
 
     .tempo {
