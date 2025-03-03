@@ -3,5 +3,6 @@ $(document).ready(function () {
         $('.nav-list').toggleClass('active');
         $('.menu-btn').toggleClass('toggle');
         $('.social').toggleClass('opacity');
+        $('.container').toggleClass('opacity');
     })
 });
