@@ -4,5 +4,6 @@ $(document).ready(function () {
         $('.menu-btn').toggleClass('toggle');
         $('.social').toggleClass('opacity');
         $('.container').toggleClass('opacity');
+        $('.contato').toggleClass('opacity');
     })
 });

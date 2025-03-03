@@ -40,6 +40,11 @@ header>span>a {
     .nav-list>li>a {
         text-decoration: none;
         color: white;
+        transition: .5s;
+    }
+
+    .nav-list>li>a:hover {
+        color: #1f8bff;
     }
 
     .menu-btn {
@@ -64,6 +69,11 @@ header>span>a {
         text-transform: uppercase;
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
+    }
+
+    .btn-contato:hover {
+        background-color: #37d1c2!important;
+        color: #000!important;
     }
 }
 
@@ -109,6 +119,11 @@ header>span>a {
     .nav-list>li>a {
         text-decoration: none;
         color: white;
+        transition: .5s;
+    }
+
+    .nav-list>li>a:hover {
+        color: #1f8bff;
     }
 
     .menu-btn {
@@ -133,6 +148,11 @@ header>span>a {
         text-transform: uppercase;
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
+    }
+
+    .btn-contato:hover {
+        background-color: #37d1c2!important;
+        color: #000!important;
     }
 }
 
@@ -178,6 +198,11 @@ header>span>a {
     .nav-list>li>a {
         text-decoration: none;
         color: white;
+        transition: .5s;
+    }
+
+    .nav-list>li>a:hover {
+        color: #1f8bff;
     }
 
     .menu-btn {
@@ -202,6 +227,11 @@ header>span>a {
         text-transform: uppercase;
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
+    }
+
+    .btn-contato:hover {
+        background-color: #37d1c2!important;
+        color: #000!important;
     }
 }
 
@@ -258,7 +288,11 @@ header>span>a {
         font-weight: 700;
         letter-spacing: 0.125rem;
         text-decoration: none;
+        transition: .5s;
+    }
 
+    .nav-list>li>a:hover {
+        color: #1f8bff;
     }
 
     .active {
@@ -349,6 +383,11 @@ header>span>a {
         text-transform: uppercase;
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
+    }
+
+    .btn-contato:hover {
+        background-color: #37d1c2!important;
+        color: #000!important;
     }
 }
 
@@ -405,7 +444,11 @@ header>span>a {
         font-weight: 700;
         letter-spacing: 0.125rem;
         text-decoration: none;
+        transition: .5s;
+    }
 
+    .nav-list>li>a:hover {
+        color: #1f8bff;
     }
 
     .active {
@@ -496,5 +539,10 @@ header>span>a {
         text-transform: uppercase;
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
+    }
+
+    .btn-contato:hover {
+        background-color: #37d1c2!important;
+        color: #000!important;
     }
 }

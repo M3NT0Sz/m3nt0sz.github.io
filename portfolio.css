@@ -71,7 +71,7 @@ body {
     }
 
     .portfolio-item:hover{
-        width: 32%;
+        transform: scale(1.05);
         height: auto;
     }
 
@@ -168,7 +168,7 @@ body {
         transition: .5s;
     }
     .portfolio-item:hover{
-        width: 47%;
+        transform: scale(1.05);
         height: auto;
     }
 
@@ -266,7 +266,7 @@ body {
     }
 
     .portfolio-item:hover{
-        width: 47%;
+        transform: scale(1.05);
         height: auto;
     }
 
@@ -368,7 +368,7 @@ body {
     }
 
     .portfolio-item:hover{
-        width: 47%;
+        transform: scale(1.05);
         height: auto;
     }
 
@@ -465,7 +465,7 @@ body {
     }
 
     .portfolio-item:hover{
-        width: 87%;
+        transform: scale(1.05);
         height: auto;
     }
 
