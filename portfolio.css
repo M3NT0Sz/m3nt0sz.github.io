@@ -79,6 +79,93 @@ header>span>a {
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
     }
+
+    .portfolio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 150px;
+    }
+
+    .container{
+        z-index: 1000;
+        width: 100%;
+    }
+
+    .container>h1{
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        padding-left: 1.5rem;
+    }
+
+    .container>p{
+        color: #fff;
+        padding-left: 1.5rem;
+    }
+
+    .portfolio-list{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .portfolio-item{
+        display: flex;
+        text-decoration: none;
+        color: #fff;
+        width: 20%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: solid 2px #1f8bff;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: none;
+        margin-top: 10px;
+        margin-right: 100px;
+    }
+
+    .portfolio-item > img{
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .portfolio-text{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border: solid 2px #1f8bff;
+        width: 110%;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: #1f8bff;
+        transition: .5s;
+    }
+
+    .portfolio-text:hover{
+        background-color: #37d1c2;
+        color: #000;
+    }
+
+    .portfolio-text > h2{
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 1280px) and (min-width: 769px) {
@@ -364,6 +451,85 @@ header>span>a {
         border-radius: 50vh;
         padding: 0.75rem 1.5rem;
     }
+
+    .portfolio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 150px;
+    }
+
+    .container{
+        z-index: 1000;
+        width: 100%;
+    }
+
+    .container>h1{
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        padding-left: 3rem;
+    }
+
+    .portfolio-list{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio-item{
+        display: flex;
+        text-decoration: none;
+        color: #fff;
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: solid 2px #007BFF;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom: none;
+        margin-top: 10px;
+    }
+
+    .portfolio-item > img{
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .portfolio-text{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border: solid 2px #007BFF;
+        width: 105%;
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: #007BFF;
+        transition: .5s;
+    }
+
+    .portfolio-text:hover{
+        background-color: #fff;
+        color: #000;
+    }
+
+    .portfolio-text > h2{
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -530,7 +696,12 @@ header>span>a {
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 30px;
-        padding-left: 3rem;
+        padding-left: 1.5rem;
+    }
+
+    .container>p{
+        color: #fff;
+        padding-left: 1.5rem;
     }
 
     .portfolio-list{
@@ -545,12 +716,12 @@ header>span>a {
         display: flex;
         text-decoration: none;
         color: #fff;
-        width: 90%;
+        width: 85%;
         height: auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: solid 2px #007BFF;
+        border: solid 2px #1f8bff;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         border-bottom: none;
@@ -568,18 +739,20 @@ header>span>a {
         display: flex;
         flex-direction: column;
         text-align: center;
-        border: solid 2px #007BFF;
-        width: 105%;
+        border: solid 2px #1f8bff;
+        width: 110%;
         border-radius: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
         justify-content: center;
         align-items: center;
-        background-color: #007BFF;
+        background-color: #1f8bff;
+        transition: .5s;
     }
 
     .portfolio-text:hover{
         background-color: #fff;
+        color: #000;
     }
 
     .portfolio-text > h2{
