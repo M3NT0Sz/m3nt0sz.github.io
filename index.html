@@ -1,104 +1,806 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="principal.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="icon" href="Imagens/Logo.png" type="image/x-icon">
-    <title>Matheus Mendes</title>
+    <title>Matheus Mendes - FullStack Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #0a0f1c;
+            --secondary-bg: #1a1f2e;
+            --card-bg: #252a3a;
+            --primary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --cyan: #06b6d4;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+            --glow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 15, 28, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: var(--glow);
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-primary);
+            background: rgba(37, 99, 235, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-blue);
+            background: rgba(37, 99, 235, 0.2);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        /* Main sections */
+        .section {
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.5)); }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--glow);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+        }
+
+        /* About section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-blue);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Portfolio section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            group: hover;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .portfolio-link {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover .portfolio-link {
+            opacity: 1;
+        }
+
+        /* Contact section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Section headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--secondary-bg);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 6rem 1rem 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-
 <body>
+    <div class="bg-animation"></div>
+    
     <header>
-        <span><a href="index.html">m.</a></span>
-        <button class="menu-btn">
-            <span></span>
-        </button>
-        <nav>
-            <ul class="nav-list">
-                <li><a href="./sobre.html">SOBRE</a></li>
-                <li><a href="./portfolio.html">PORTFÓLIO</a></li>
-                <li><a href="./contato.html" class="btn-contato">ENTRAR EM CONTATO</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <a href="#home" class="logo">m.</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#sobre" class="nav-link">SOBRE</a></li>
+                    <li><a href="#portfolio" class="nav-link">PORTFÓLIO</a></li>
+                    <li><a href="#contato" class="nav-link">CONTATO</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
     </header>
-    <section class="nome">
-        <h1>Matheus Mendes</h1>
-        <p id="backend-dev"></p>
-    </section>
-    <ul class="social">
-        <li><a href="https://www.linkedin.com/in/m3nt0sz/"><svg viewBox="0 0 32 32" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" class="sc-d49085f2-0 jCMiyp vector">
-                    <path
-                        d="M7.163 32H.529V10.634h6.634v21.364ZM3.843 7.72C1.72 7.72 0 5.965 0 3.843a3.842 3.842 0 1 1 7.684 0c0 2.122-1.721 3.879-3.842 3.879ZM31.992 32h-6.62V21.6c0-2.48-.05-5.658-3.45-5.658-3.449 0-3.977 2.693-3.977 5.479v10.578h-6.627V10.635h6.362v2.914h.093c.886-1.678 3.05-3.45 6.277-3.45C30.766 10.1 32 14.521 32 20.264v11.735h-.007Z"
-                        fill="currentColor"></path>
-                </svg></a></li>
-        <li><a href="https://github.com/M3NT0Sz"><svg viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="sc-d49085f2-0 jCMiyp vector">
-                    <path
-                        d="M12.407 17.846c0 1.393-.727 3.673-2.447 3.673-1.72 0-2.447-2.28-2.447-3.673 0-1.393.727-3.673 2.447-3.673 1.72 0 2.447 2.28 2.447 3.673ZM32 14.479c0 2.127-.213 4.38-1.167 6.334-2.526 5.106-9.473 4.986-14.446 4.986-5.054 0-12.414.18-15.04-4.986C.373 18.879 0 16.606 0 14.479c0-2.793.927-5.433 2.767-7.573a10.436 10.436 0 0 1-.514-3.253c0-1.434.327-2.154.974-3.454 3.02 0 4.953.6 7.253 2.4 1.933-.46 3.92-.666 5.913-.666 1.8 0 3.614.193 5.36.613C24.02.766 25.953.199 28.94.199c.653 1.3.973 2.02.973 3.454 0 1.093-.173 2.18-.513 3.213 1.833 2.16 2.6 4.82 2.6 7.613Zm-4.287 3.367c0-2.927-1.78-5.507-4.9-5.507-1.26 0-2.466.227-3.733.4a19.58 19.58 0 0 1-3.007.214 19.7 19.7 0 0 1-3.006-.214c-1.247-.173-2.467-.4-3.734-.4-3.12 0-4.9 2.58-4.9 5.507 0 5.853 5.36 6.753 10.027 6.753h3.213c4.687 0 10.04-.893 10.04-6.753Zm-5.506-3.673c-1.72 0-2.447 2.28-2.447 3.673 0 1.393.727 3.673 2.447 3.673 1.72 0 2.446-2.28 2.446-3.673 0-1.393-.726-3.673-2.446-3.673Z"
-                        fill="currentColor"></path>
-                </svg></a></li>
-        <li><a href="https://www.instagram.com/matheus_mentos/"><svg viewBox="0 0 32 32" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" class="sc-d49085f2-0 jCMiyp vector">
-                    <path
-                        d="M16.004 7.797A8.19 8.19 0 0 0 7.8 16a8.19 8.19 0 0 0 8.203 8.202A8.19 8.19 0 0 0 24.206 16a8.19 8.19 0 0 0-8.202-8.203Zm0 13.535A5.342 5.342 0 0 1 10.67 16a5.338 5.338 0 0 1 5.333-5.333A5.338 5.338 0 0 1 21.336 16a5.342 5.342 0 0 1-5.332 5.332Zm10.45-13.87a1.909 1.909 0 0 1-1.912 1.913 1.913 1.913 0 1 1 1.913-1.913Zm5.434 1.941C31.766 6.84 31.18 4.57 29.303 2.7 27.433.83 25.163.244 22.6.116c-2.642-.15-10.559-.15-13.2 0-2.556.121-4.826.706-6.703 2.577C.819 4.563.24 6.833.112 9.396c-.15 2.641-.15 10.558 0 13.2.122 2.563.707 4.833 2.585 6.703 1.877 1.87 4.14 2.456 6.703 2.585 2.641.15 10.559.15 13.2 0 2.563-.122 4.833-.707 6.703-2.585 1.87-1.87 2.456-4.14 2.585-6.703.15-2.642.15-10.551 0-13.193ZM28.475 25.43a5.399 5.399 0 0 1-3.041 3.041c-2.106.835-7.103.643-9.43.643-2.328 0-7.332.185-9.43-.643a5.399 5.399 0 0 1-3.042-3.04c-.835-2.107-.643-7.104-.643-9.431 0-2.328-.185-7.332.643-9.43a5.399 5.399 0 0 1 3.041-3.042c2.106-.835 7.103-.643 9.43-.643 2.328 0 7.332-.185 9.431.643a5.4 5.4 0 0 1 3.041 3.041c.835 2.106.643 7.103.643 9.43 0 2.328.192 7.332-.643 9.431Z"
-                        fill="currentColor"></path>
-                </svg></a></li>
-    </ul>
-    <svg class="svg-esquerda sc-329c9a8d-1 kuGpxq waves" viewBox="0 0 543 445" fill="none"
-        xmlns="http://www.w3.org/2000/svg" opacity="1" style="position:absolute; bottom: 0;">
-        <path
-            d="M0 445V-3.8147e-06C50.308 6.537 80.326 46.6 90.053 68.216C105.145 101.738 130.3 123.191 175.074 117.661C219.848 112.131 246.848 125.204 274.35 183.361C298.666 234.648 324.995 222.413 428.295 247.051C531.595 271.689 502.92 340.075 524.219 410.302C528.055 423.025 534.446 434.833 543.001 445.002H0.000976562"
-            fill="url(#waveGradientSmall)" class="sc-329c9a8d-0 fKFJuj" opacity="1"
-            transform-origin="271.50048828125px 222.50100326537813px"
-            style="transform: translateY(0%); transform-origin: 271.5px 222.501px;"></path>
-        <path
-            d="M301.015 350.468C356.522 352.312 433.83 383.655 459.991 445H-3.05176e-05V153.361C67.079 152.188 130.97 187.553 152.6 248.561C176.249 315.774 235.613 348.457 301.015 350.468Z"
-            fill="url(#waveGradientBig)" class="sc-329c9a8d-0 fKFJuj" opacity="1"
-            transform-origin="229.99548339841567px 299.1663513183594px"
-            style="transform: translateY(0%); transform-origin: 229.995px 299.166px;"></path>
-        <defs>
-            <linearGradient id="waveGradientSmall" x1="270" y1="45" x2="270" y2="400" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#37d1c2"></stop>
-                <stop offset="1" stop-color="#1f8bff"></stop>
-            </linearGradient>
-            <linearGradient id="waveGradientBig" x1="230" y1="200" x2="230" y2="500" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#1f8bff"></stop>
-                <stop offset="1" stop-color="#37d1c2"></stop>
-            </linearGradient>
-        </defs>
-    </svg>
-    <svg class="svg-direita sc-329c9a8d-1 kuGpxq waves" viewBox="0 0 543 445" fill="none"
-        xmlns="http://www.w3.org/2000/svg" opacity="1">
-        <path
-            d="M543.001 445V-3.8147e-06C492.693 6.537 462.675 46.6 452.948 68.216C437.856 101.738 412.701 123.191 367.927 117.661C323.153 112.131 296.153 125.204 268.651 183.361C244.335 234.648 218.006 222.413 114.706 247.051C11.406 271.689 40.081 340.075 18.782 410.302C14.9456 423.025 8.55474 434.833 0 445.002H543"
-            fill="url(#waveGradientSmall)" class="sc-329c9a8d-0 fKFJuj" opacity="1"
-            transform-origin="271.50048828125px 222.50100326537813px"
-            style="transform: translateY(0%); transform-origin: 271.5px 222.501px;"></path>
-        <path
-            d="M241.986 350.468C186.479 352.312 109.171 383.655 83.01 445H543.001V153.361C475.922 152.188 412.031 187.553 390.401 248.561C366.752 315.774 307.388 348.457 241.986 350.468Z"
-            fill="url(#waveGradientBig)" class="sc-329c9a8d-0 fKFJuj" opacity="1"
-            transform-origin="313.00548553466797px 299.1663513183594px"
-            style="transform: translateY(0%); transform-origin: 313.005px 299.166px;"></path>
-        <defs>
-            <linearGradient id="waveGradientSmall" x1="270" y1="45" x2="270" y2="400" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#40E0D0"></stop>
-                <stop offset="1" stop-color="#007BFF"></stop>
-            </linearGradient>
-            <linearGradient id="waveGradientBig" x1="230" y1="200" x2="230" y2="500" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#007BFF"></stop>
-                <stop offset="1" stop-color="#40E0D0"></stop>
-            </linearGradient>
-        </defs>
-    </svg>
-    <script>
-        document.getElementById('backend-dev').innerText = '<FullStack Developer/>';
-    </script>
-    <script src="main.js"></script>
-</body>
 
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="container">
+            <div class="hero loading">
+                <h1>Matheus Mendes</h1>
+                <p class="subtitle">&lt;FullStack Developer/&gt;</p>
+                <p class="description">
+                    Desenvolvedor apaixonado por criar soluções inovadoras e experiências digitais excepcionais
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/m3nt0sz/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/M3NT0Sz" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/matheus_mentos/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <a href="#contato" class="cta-button">Entre em Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="section-header loading">
+                <h2>Sobre Mim</h2>
+                <p>Conheça um pouco da minha jornada e experiência</p>
+            </div>
+            <div class="about-content loading">
+                <div class="about-text">
+                    <h2>Olá!</h2>
+                    <p>
+                        Sou o Matheus, um desenvolvedor fullstack em busca da minha primeira oportunidade profissional, 
+                        com experiência em PHP, Node.js, SQL e JavaScript. Tenho grande interesse em criar soluções 
+                        escaláveis e eficientes, sempre focado em boas práticas e otimização de desempenho.
+                    </p>
+                    <p>
+                        Estou constantemente aprimorando minhas habilidades e busco um ambiente colaborativo onde 
+                        possa aprender e contribuir ativamente para o desenvolvimento de projetos inovadores.
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Anos de estudo</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Projetos concluídos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="./Imagens/Eu.png" alt="Matheus Mendes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="section-header loading">
+                <h2>Portfólio</h2>
+                <p>Alguns projetos que desenvolvi durante minha jornada acadêmica</p>
+            </div>
+            <div class="portfolio-grid loading">
+                <div class="portfolio-card">
+                    <img src="Imagens/5.png" alt="Laravel AdminLTE">
+                    <div class="portfolio-content">
+                        <h3>Laravel - AdminLTE</h3>
+                        <p>Dashboard administrativa com Laravel 12 e template AdminLTE, incluindo autenticação e gerenciamento de usuários.</p>
+                    </div>
+                    <a href="https://github.com/M3NT0Sz/laravelAdminLTE" class="portfolio-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="Imagens/2.png" alt="APAE">
+                    <div class="portfolio-content">
+                        <h3>APAE</h3>
+                        <p>Sistema desenvolvido para melhor organização de alimentos para o instituto APAE.</p>
+                    </div>
+                    <a href="https://github.com/Arthur-nonaka/APAE" class="portfolio-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="Imagens/3.png" alt="CodeStruct">
+                    <div class="portfolio-content">
+                        <h3>CodeStruct</h3>
+                        <p>Plataforma de ensino sobre Estrutura de Dados, desenvolvida para fins acadêmicos.</p>
+                    </div>
+                    <a href="https://github.com/M3NT0Sz/CodeStruct" class="portfolio-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="Imagens/4.png" alt="Xhopii MVC">
+                    <div class="portfolio-content">
+                        <h3>Xhopii MVC</h3>
+                        <p>Sistema desenvolvido para replicar um site e implementar o backend em arquitetura MVC.</p>
+                    </div>
+                    <a href="https://github.com/M3NT0Sz/xhopii-MVC" class="portfolio-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="Imagens/1.png" alt="StarWars API">
+                    <div class="portfolio-content">
+                        <h3>StarWars API</h3>
+                        <p>Projeto desenvolvido para estudar e compreender o funcionamento de APIs.</p>
+                    </div>
+                    <a href="https://github.com/M3NT0Sz/StarWarsAPI" class="portfolio-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="Imagens/6.png" alt="DescompliCars">
+                    <div class="portfolio-content">
+                        <h3>DescompliCars</h3>
+                        <p>TCC - Site de opiniões de proprietários sobre veículos, auxiliando compradores na decisão.</p>
+                    </div>
+                    <a href="https://github.com/M3NT0Sz/DescompliCarsTCC" class="portfolio-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="section">
+        <div class="container">
+            <div class="section-header loading">
+                <h2>Entre em Contato</h2>
+                <p>Tem alguma ideia? Um novo projeto? Precisa de ajuda? Ficarei muito feliz em ajudar.</p>
+            </div>
+            <div class="contact-content loading">
+                <div class="contact-info">
+                    <h2>Quer entrar em contato?</h2>
+                    <p>Estou sempre aberto a novas oportunidades e colaborações. Vamos conversar!</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/m3nt0sz/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/M3NT0Sz" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/matheus_mentos/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/xldgqana" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="Mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Update active navigation link
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Loading animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.loading').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 15, 28, 0.95)';
+            } else {
+                header.style.background = 'rgba(10, 15, 28, 0.8)';
+            }
+        });
+    </script>
+</body>
 </html>
