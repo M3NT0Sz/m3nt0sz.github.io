@@ -365,25 +365,30 @@ header {
   font-size: 0.95rem;
 }
 
-.portfolio-link {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 40px;
-  height: 40px;
-  background: var(--gradient);
-  border-radius: 50%;
+.portfolio-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  text-decoration: none;
-  opacity: 0;
-  transition: all 0.3s ease;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
 }
 
-.portfolio-card:hover .portfolio-link {
-  opacity: 1;
+.portfolio-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--gradient);
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.portfolio-link:hover {
+  background: var(--primary-blue);
+  color: #fff;
 }
 
 /* Contact section */
