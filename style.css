@@ -324,6 +324,9 @@ header {
 }
 
 .portfolio-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: var(--card-bg);
   border-radius: 15px;
   overflow: hidden;

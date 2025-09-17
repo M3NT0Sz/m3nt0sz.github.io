@@ -247,11 +247,11 @@
             </div>
             <div class="portfolio-links">
               <a
-                href="https://github.com/M3NT0Sz/FioseAraujo"
+                href="https://fiosaraujo.netlify.app"
                 class="portfolio-link"
                 target="_blank"
               >
-                <i class="fas fa-external-link-alt"></i> Repositório
+                <i class="fas fa-external-link-alt"></i> Site
               </a>
             </div>
           </div>
@@ -300,11 +300,7 @@
               </a>
             </div>
           </div>
-          <form
-            action="https://formspree.io/f/xldgqana"
-            method="POST"
-            class="contact-form"
-          >
+          <form class="contact-form" onsubmit="return enviarWhatsApp(event)">
             <div class="form-group">
               <label for="nome">Nome</label>
               <input type="text" id="nome" name="Nome" required />
@@ -319,6 +315,18 @@
             </div>
             <button type="submit" class="submit-btn">Enviar Mensagem</button>
           </form>
+          <script>
+            function enviarWhatsApp(event) {
+              event.preventDefault();
+              const nome = document.getElementById('nome').value;
+              const email = document.getElementById('email').value;
+              const mensagem = document.getElementById('mensagem').value;
+              const texto = encodeURIComponent(`Nome: ${nome}, Email: ${email}, Mensagem: ${mensagem}`);
+              const numero = '5518988027203'; // Coloque o número com DDI e DDD, exemplo: 5511999999999
+              window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
+              return false;
+            }
+          </script>
         </div>
       </div>
     </section>
